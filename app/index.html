@@ -5,10 +5,11 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,99 +23,25 @@
 <![endif]-->
 
 <!-- Add your site or application content here -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <img style="max-width:100%; max-height:100%;" src="images/ISMbothLogoST.png" class="img-rounded">
-            </a>
-        </div>
-        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+<div ng-include="'views/header.html'"></div>
+<div>
+    <div ng-view></div>
+    <hr>
+    <footer class="container">
+        <nav class="pull-left">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="/products">Products</a>
-                </li>
-                <li>
-                    <a href="learn">Learn</a>
-                </li>
-                <li>
-                    <a href="faq">FAQ</a>
-                </li>
-                <li class="active">
-                    <a href="about">About</a>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
                 <li><a href="http://expo.getbootstrap.com"
                        onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Email</a></li>
                 <li><a href="http://blog.getbootstrap.com"
                        onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Contact</a></li>
                 <li><a href="http://blog.getbootstrap.com"
-                       onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Investions</a></li>
+                       onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Investors</a></li>
             </ul>
         </nav>
-
-    </div>
-</div>
-<div class="jumbotron">
-    <div class="container">
-        <h1>Hello, world!</h1>
-
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.</p>
-
-        <p><a class="btn btn-primary btn-lg" role="button">Learn more »</a></p>
-    </div>
-</div>
-
-<div class="container">
-    <!-- Example row of columns -->
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Heading</h2>
-
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Heading</h2>
-
-            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui. </p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Heading</h2>
-
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
-                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-                fermentum massa justo sit amet risus.</p>
-
-            <p><a class="btn btn-default" href="#" role="button">View details »</a></p>
-        </div>
-    </div>
-
-    <hr>
-
-    <footer>
-        <p>© Company 2014</p>
+        <p class="pull-right">© Company 2014</p>
     </footer>
 </div>
+
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
     (function (i, s, o, g, r, a, m) {
@@ -150,6 +77,7 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/slick-carousel/slick/slick.min.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -157,6 +85,7 @@
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
+<script src="scripts/directives/slick.js"></script>
 <!-- endbuild -->
 </body>
 </html>

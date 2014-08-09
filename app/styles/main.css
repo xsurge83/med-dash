@@ -121,18 +121,38 @@ body {
     margin-left: -15px;
     float: left;
 }
+.carousel-slider > .img {
+    /* Set rules to fill background */
+    min-width: 1024px;
+    min-height: 400px;
 
-.carousel {
-    margin-top: 10px;
+    /* Set up proportionate scaling */
+    width: 100%;
+    /*height: auto;*/
+
+    /* Set up positioning */
+    /*position: fixed;*/
+    top: 0;
+    left: 0;
 }
 
-.carousel > .img-thumbnail {
 
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+    .carousel-slider > .img {
+        left: 50%;
+        margin-left: -512px;   /* 50% */
+    }
 }
+
 .carousel-slider{
     width: 100%;
 }
-
+.slick-prev{
+    left:10px;
+}
+.slick-next{
+    right:5px;
+}
 .pulse,
 .pulse:after {
     display: inline-block;

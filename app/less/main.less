@@ -129,16 +129,36 @@ body {
   }
 }
 
+.page-carousel{
+  padding-bottom: 4px;
+  h2 {
+    top: 300px;
+    position: absolute;
+    z-index: 3;
+    left: 10%;
+    span {
+      color: white;
+      font: bold 24px/45px Helvetica, Sans-Serif;
+      letter-spacing: -1px;
+      background: rgb(0, 0, 0);
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      border-radius: 4px;
+    }
+  }
+}
 .carousel-slider {
   width: 100%;
   & > .img {
     min-width: 1024px;
-    min-height: 300px;
+    min-height: 200px;
     width: 100%;
     top: 0;
     left: 0;
   }
 }
+
+
 
 .slick-prev {
   left: 10px;
@@ -187,4 +207,9 @@ body {
   box-shadow: 1px 2px 3px #bcbcbc;
   width:80px;
   height:80px;
+}
+
+.page-content {
+  margin-top: 5px;
+  border: 1px solid rgba(0, 0, 0, .15);
 }

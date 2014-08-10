@@ -10,7 +10,7 @@ angular.module('infrasonicApp')
   .directive('slick', function ($timeout) {
     return {
       restrict: 'AEC',
-      link: function postLink(scope, element, attrs) {
+      link: function postLink(scope, element) {
         var $slider = $(element);
         $timeout(function(){
           $slider.slick({

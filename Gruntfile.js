@@ -48,6 +48,10 @@ module.exports = function (grunt) {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
       },
+      less: {
+        files: ['<%= yeoman.app %>/less/**/*.less'],
+        tasks: ['less']
+      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -355,6 +359,26 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+    less: {
+      options: {
+        paths: []
+      },
+      dev: {
+        options: {
+          sourceMap : true,
+          sourceMapFileName : '<%= yeoman.app %>/styles/main.css.map'
+        },
+        files: [
+          {
+            expand: true,     // Enable dynamic expansion.
+            cwd: '<%= yeoman.app %>/less/',      // Src matches are relative to this path.
+            src: ['**/main.less'], // Actual pattern(s) to match.
+            dest: './app/styles/',   // Destination path prefix.
+            ext: '.css'  // Dest filepaths will have this extension.
+          }
+        ]
+      }
     }
   });
 
@@ -389,6 +413,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'less',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

@@ -1,201 +1,154 @@
-/* Space out content a bit */
 body {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
-
-/* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
 .footer {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
-/* Custom page header */
 .header {
-    border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
-
-/* Make the masthead heading the same height as the navigation */
 .header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
 }
-
-/* Custom page footer */
 .footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
 }
-
 /* Customize container */
 @media (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
+  .container {
+    max-width: 730px;
+  }
 }
-
 .container-narrow > hr {
-    margin: 30px 0;
+  margin: 30px 0;
 }
-
-/* Main marketing message and sign up button */
 .jumbotron {
-    text-align: center;
-
-    border-bottom: 1px solid #e5e5e5;
-    padding-bottom: 10px;
-    background: -webkit-linear-gradient(rgb(39, 5, 48), rgb(0, 5, 75)); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(rgb(39, 5, 48), rgb(0, 5, 75)); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(rgb(39, 5, 48), rgb(0, 5, 75)); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(rgb(39, 5, 48), rgb(0, 5, 75)); /* Standard syntax (must be last) */
-
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 10px;
+  background: -webkit-linear-gradient(#270530, #00054b);
+  background: -o-linear-gradient(#270530, #00054b);
+  background: -moz-linear-gradient(#270530, #00054b);
+  background: linear-gradient(#270530, #00054b);
 }
 .jumbotron h2 {
-    color: #999;
-    line-height: 1.2em;
-    font-weight: lighter;
-    margin-bottom: 1em;
+  color: #999;
+  line-height: 1.2em;
+  font-weight: lighter;
+  margin-bottom: 1em;
 }
-
 .jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-
+  font-size: 21px;
+  padding: 14px 24px;
 }
-
-/* Supporting marketing content */
 .marketing {
-    margin: 40px 0;
+  margin: 40px 0;
 }
-
 .marketing p + h4 {
-    margin-top: 28px;
+  margin-top: 28px;
 }
-
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
 }
-
 .centered {
-    margin: 0 auto;
+  margin: 0 auto;
 }
-
 .navbar-inverse {
-    background-color: rgb(39, 5, 48);
-    border-color: #080808;
+  background-color: #270530;
+  border-color: #080808;
 }
-
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-    background-color: rgb(39, 5, 55);
-    border-color: #080808;
+.navbar-inverse .navbar-nav  > .active  > a,
+.navbar-inverse .navbar-nav  > .active  > a:hover,
+.navbar-inverse .navbar-nav  > .active  > a:focus {
+  background-color: #270537;
+  border-color: #080808;
 }
-
 .navbar-brand > img {
-    height: 60px;
-    margin-top: -15px;
+  height: 60px;
+  margin-top: -15px;
 }
-
+.navbar-brand > .pulse {
+  position: absolute;
+  margin-left: 160px;
+  margin-top: -40px;
+}
 .navbar-header > .navbar-brand {
-    height: 70px;
-    margin-left: -15px;
-    float: left;
+  height: 70px;
+  margin-left: -15px;
+  float: left;
+}
+.carousel-slider {
+  width: 100%;
 }
 .carousel-slider > .img {
-    /* Set rules to fill background */
-    min-width: 1024px;
-    min-height: 400px;
-
-    /* Set up proportionate scaling */
-    width: 100%;
-    /*height: auto;*/
-
-    /* Set up positioning */
-    /*position: fixed;*/
-    top: 0;
-    left: 0;
+  min-width: 1024px;
+  min-height: 400px;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
-
-
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-    .carousel-slider > .img {
-        left: 50%;
-        margin-left: -512px;   /* 50% */
-    }
+.slick-prev {
+  left: 10px;
 }
-
-.carousel-slider{
-    width: 100%;
-}
-.slick-prev{
-    left:10px;
-}
-.slick-next{
-    right:5px;
+.slick-next {
+  right: 10px;
 }
 .pulse,
 .pulse:after {
-    display: inline-block;
-    padding: .3rem;
-    border-radius: 50%;
-    animation: pulse 1.4s .9s infinite ease-out;
-    border: thin solid rgba(230, 230, 230, 0);
-    transform: scale3d(.7, .7, 0);
-    transition: opacity .75s;
+  display: inline-block;
+  padding: .3rem;
+  border-radius: 50%;
+  animation: pulse 1.4s 0.9s infinite ease-out;
+  border: thin solid rgba(230, 230, 230, 0);
+  transform: scale3d(0.7, 0.7, 0);
+  transition: opacity .75s;
 }
-
-.navbar-brand > .pulse {
-    position: absolute;
-    margin-left: 160px;
-    margin-top: -40px;
-}
-
 .pulse:after {
-    display: block;
-    content: "";
-    padding: 1rem;
+  display: block;
+  content: "";
+  padding: 1rem;
 }
-
 @keyframes pulse {
-    50% {
-        border-color: rgb(260, 0, 0);
-        background: transparent;
-    }
-    to {
-        border-color: transparent;
-        transform: none;
-    }
+  50% {
+    border-color: #ff0000;
+    background: transparent;
+  }
+  to {
+    border-color: transparent;
+    transform: none;
+  }
 }
-
 .card-info {
-    padding-bottom: 4px;
+  padding-bottom: 4px;
 }
-
-.card-img {
-    margin: 8px;
-    box-shadow: 1px 2px 3px #bcbcbc;
-}
-
 .card-info > .date {
-    font-style: italic;
+  font-style: italic;
 }
+.card-img {
+  margin: 8px;
+  box-shadow: 1px 2px 3px #bcbcbc;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9sZXNzL21haW4ubGVzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG9CQUFBOztBQUdGO0FBQVM7QUFBWTtFQUNuQixrQkFBQTtFQUNBLG1CQUFBOztBQUdGO0VBQ0UsZ0NBQUE7O0FBREYsT0FFRTtFQUNFLGFBQUE7RUFDQSxnQkFBQTtFQUNBLGlCQUFBO0VBQ0Esb0JBQUE7O0FBSUo7RUFDRSxpQkFBQTtFQUNBLFdBQUE7RUFDQSw2QkFBQTs7O0FBVUYsUUFOMEI7RUFDeEI7SUFDRSxnQkFBQTs7O0FBS0YsaUJBQUU7RUFDQSxjQUFBOztBQUlKO0VBQ0Usa0JBQUE7RUFDQSxnQ0FBQTtFQUNBLG9CQUFBO0VBQ0EsWUFBWSx5Q0FBWjtFQUNBLFlBQVksb0NBQVo7RUFDQSxZQUFZLHNDQUFaO0VBQ0EsWUFBWSxpQ0FBWjs7QUFQRixVQVFFO0VBQ0UsV0FBQTtFQUNBLGtCQUFBO0VBQ0Esb0JBQUE7RUFDQSxrQkFBQTs7QUFaSixVQWNFO0VBQ0UsZUFBQTtFQUNBLGtCQUFBOztBQUlKO0VBQ0UsY0FBQTs7QUFERixVQUVFLEVBQUU7RUFDQSxnQkFBQTs7O0FBeUJKLG1CQXBCcUM7O0VBRW5DO0VBQ0E7RUFDQTtJQUNFLGVBQUE7SUFDQSxnQkFBQTs7O0VBSUY7SUFDRSxtQkFBQTs7O0VBSUY7SUFDRSxnQkFBQTs7O0FBSUo7RUFDRSxjQUFBOztBQUdGO0VBQ0UseUJBQUE7RUFDQSxxQkFBQTs7QUFHRixlQUFnQixZQUFZLENBQUUsVUFBVSxDQUFFO0FBQUssZUFBZ0IsWUFBWSxDQUFFLFVBQVUsQ0FBRSxJQUFHO0FBQVEsZUFBZ0IsWUFBWSxDQUFFLFVBQVUsQ0FBRSxJQUFHO0VBQy9JLHlCQUFBO0VBQ0EscUJBQUE7O0FBSUEsYUFBRTtFQUNBLFlBQUE7RUFDQSxpQkFBQTs7QUFFRixhQUFFO0VBQ0Esa0JBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBOztBQUtGLGNBQUU7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7RUFDQSxXQUFBOztBQUlKO0VBQ0UsV0FBQTs7QUFDQSxnQkFBRTtFQUNBLGlCQUFBO0VBQ0EsaUJBQUE7RUFDQSxXQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7O0FBSUo7RUFDRSxVQUFBOztBQUdGO0VBQ0UsV0FBQTs7QUFHRjtBQUFRLE1BQU07RUFDWixxQkFBQTtFQUNBLGNBQUE7RUFDQSxrQkFBQTtFQUNBLDRDQUFBO0VBQ0EseUNBQUE7RUFDQSxXQUFXLG9CQUFYO0VBQ0Esd0JBQUE7O0FBR0YsTUFBTTtFQUNKLGNBQUE7RUFDQSxTQUFTLEVBQVQ7RUFDQSxhQUFBOztBQUdGO0VBQ0U7SUFDRSxxQkFBQTtJQUNBLHVCQUFBOztFQUVGO0lBQ0UseUJBQUE7SUFDQSxlQUFBOzs7QUFJSjtFQUNFLG1CQUFBOztBQUNBLFVBQUU7RUFDQSxrQkFBQTs7QUFJSjtFQUNFLFdBQUE7RUFDQSwrQkFBQSJ9 */

@@ -9,9 +9,15 @@
  */
 angular.module('infrasonicApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
+    $scope.images = [
+      {
+        path: 'images/carousel/home/image1.png'
+      },
+      {
+        path: 'images/carousel/home/image2.jpg'
+      },
+      {
+        path: 'images/carousel/home/image3.jpg'
+      }
     ];
   });

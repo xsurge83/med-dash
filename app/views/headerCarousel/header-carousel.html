@@ -1,0 +1,11 @@
+<div class="page-carousel">
+    <h2>
+        <span ng-bind="header"></span>
+    </h2>
+    <slick>
+        <div ng-repeat="image in images"  class="carousel-slider">
+            <img class="img"
+                 ng-src="{{image.path}}">
+        </div>
+    </slick>
+</div>

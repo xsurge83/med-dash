@@ -2,26 +2,38 @@
   'use strict';
   function NavBarCtrl($scope, $rootScope, $location) {
     var _navLinks = $scope.navLinks = [];
+
+    function _matchWithPath(linkUrl, curPath){
+      var url = linkUrl.replace('#', ''),
+        linkRegExp = new RegExp(url, 'i');
+      return curPath.match(linkRegExp);
+    }
+
+    function _resetNavLinks(){
+      angular.forEach(_navLinks, function (link) {
+        link.selected = false;
+      });
+    }
+
     $rootScope.$on('$routeChangeStart', function routeChange() {
       var path = $location.path();
       var matchedLink = _.find(_navLinks, function criteria(link) {
-        var url = link.url.replace('#', ''),
-          linkRegExp = new RegExp(url, 'i');
-        return path.match(linkRegExp);
-      });
+        return _matchWithPath(link.url, path);
+      }) || _navLinks[0];
       if (matchedLink) {
         $scope.select(matchedLink);
       }
     });
     $scope.select = function (navLink) {
-      angular.forEach(_navLinks, function (link) {
-        link.selected = false;
-      });
+      _resetNavLinks();
       navLink.selected = true;
     };
 
     this.add = function (navLink) {
       if (_navLinks.length === 0) {
+        navLink.selected = true;
+      } else if(_matchWithPath(navLink.url, $location.path())){
+        _resetNavLinks();
         navLink.selected = true;
       }
       _navLinks.push(navLink);

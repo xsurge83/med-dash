@@ -40,6 +40,9 @@ angular
       .when('/homecare', {
         templateUrl : 'views/homecare.html'
       })
+      .when('/faq', {
+        templateUrl : 'views/faq.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

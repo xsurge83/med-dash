@@ -8,7 +8,7 @@
  * Controller of the infrasonicApp
  */
 angular.module('infrasonicApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl',['$scope', function ($scope) {
     $scope.images = [
       {
         path: 'images/carousel/home/image1.png'
@@ -17,7 +17,7 @@ angular.module('infrasonicApp')
         path: 'images/carousel/home/image2.jpg'
       },
       {
-        path: 'images/carousel/home/image3.jpg'
+        path: 'images/carousel/home/image3.png'
       }
     ];
-  });
+  }]);

@@ -39,6 +39,8 @@
       _navLinks.push(navLink);
     };
   }
+  NavBarCtrl.$inject = ['$scope', '$rootScope', '$location'];
+
 
   function navBarDirective() {
     return {

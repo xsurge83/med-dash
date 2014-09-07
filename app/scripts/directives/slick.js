@@ -7,7 +7,7 @@
  * # slick
  */
 angular.module('infrasonicApp')
-  .directive('slick', function ($timeout) {
+  .directive('slick', ['$timeout', function ($timeout) {
     return {
       restrict: 'AEC',
       link: function postLink(scope, element) {
@@ -20,4 +20,4 @@ angular.module('infrasonicApp')
         });
       }
     };
-  });
+  }]);

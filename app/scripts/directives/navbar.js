@@ -5,7 +5,7 @@
 
     function _matchWithPath(linkUrl, curPath){
       var url = linkUrl.replace('#', ''),
-        linkRegExp = new RegExp(url, 'i');
+        linkRegExp = new RegExp(url+'\\b', 'i');
       return curPath.match(linkRegExp);
     }
 
@@ -17,6 +17,8 @@
 
     $rootScope.$on('$routeChangeStart', function routeChange() {
       var path = $location.path();
+      debugger;
+
       var matchedLink = _.find(_navLinks, function criteria(link) {
         return _matchWithPath(link.url, path);
       }) || _navLinks[0];

@@ -43,6 +43,16 @@ angular
       .when('/faq', {
         templateUrl : 'views/faq.html'
       })
+      .when('/investors', {
+        templateUrl : 'views/investors.html'
+      })
+      .when('/partners', {
+        templateUrl : 'views/partners.html'
+      })
+
+      .when('/investors', {
+        templateUrl : 'views/investors.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

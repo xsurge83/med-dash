@@ -28,19 +28,7 @@
 <div>
     <div ng-view></div>
     <hr>
-    <footer class="container">
-        <nav class="pull-left">
-            <ul class="nav navbar-nav">
-                <li><a href="http://expo.getbootstrap.com"
-                       onclick="ga('send', 'event', 'Navbar', 'Community links', 'Expo');">Contact</a></li>
-                <li><a href="http://blog.getbootstrap.com"
-                       onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Investors</a></li>
-                <li><a href="http://blog.getbootstrap.com"
-                       onclick="ga('send', 'event', 'Navbar', 'Community links', 'Blog');">Partners</a></li>
-            </ul>
-        </nav>
-        <p class="pull-right">© Infrasonic Monitoring Inc 2014</p>
-    </footer>
+    <div ng-include="'views/footer.html'"></div>
 </div>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

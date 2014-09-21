@@ -17,11 +17,9 @@
 
     $rootScope.$on('$routeChangeStart', function routeChange() {
       var path = $location.path();
-      debugger;
-
       var matchedLink = _.find(_navLinks, function criteria(link) {
         return _matchWithPath(link.url, path);
-      }) || _navLinks[0];
+      });
       if (matchedLink) {
         $scope.select(matchedLink);
       }
@@ -32,9 +30,7 @@
     };
 
     this.add = function (navLink) {
-      if (_navLinks.length === 0) {
-        navLink.selected = true;
-      } else if(_matchWithPath(navLink.url, $location.path())){
+      if(_matchWithPath(navLink.url, $location.path())){
         _resetNavLinks();
         navLink.selected = true;
       }

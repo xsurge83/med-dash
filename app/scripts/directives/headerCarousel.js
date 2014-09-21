@@ -5,7 +5,7 @@
     return {
       restrict: 'AE',
       replace: true,
-      templateUrl: 'views/headerCarousel/header-carousel.html',
+      templateUrl: 'views/directives/headerCarousel/header-carousel.html',
       scope: {
         header: '@',
         images: '='

@@ -18,7 +18,7 @@
       restrict: 'AE',
       replace : true,
       transclude: true,
-      templateUrl: 'views/faq/faq.tpl.html',
+      templateUrl: 'views/directives/faq/faq.tpl.html',
       link : function(scope, element){
         element.click(function(event){
           event.stopPropagation()();

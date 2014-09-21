@@ -6,7 +6,6 @@
       link: function postLink(scope, element) {
         scope.show = false;
         element.click(function(){
-          debugger;
           scope.show =!scope.show;
           scope.$apply();
         });
@@ -21,6 +20,9 @@
       transclude: true,
       templateUrl: 'views/faq/faq.tpl.html',
       link : function(scope, element){
+        element.click(function(event){
+          event.stopPropagation()();
+        });
       }
     };
   }

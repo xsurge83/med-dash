@@ -1,6 +1,6 @@
 <div class="page-carousel">
     <h2>
-        <span ng-bind="header"></span>
+        <span ng-show="header" ng-bind="header"></span>
     </h2>
     <slick>
         <div ng-repeat="image in images"  class="carousel-slider">

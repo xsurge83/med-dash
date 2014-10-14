@@ -45,7 +45,7 @@
       restrict: 'AE',
       replace: true,
       transclude: true,
-      templateUrl: 'views//directives/navBar/nav-bar.html',
+      templateUrl: 'views/directives/navBar/nav-bar.html',
       controller: NavBarCtrl
     };
   }
@@ -56,7 +56,7 @@
       replace: true,
       require: '^navBar',
       transclude: true,
-      templateUrl: 'views//directives/navBar/nav-link.html',
+      templateUrl: 'views/directives/navBar/nav-link.html',
       scope: {
         name: '@',
         url: '@'

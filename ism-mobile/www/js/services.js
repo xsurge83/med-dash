@@ -12,32 +12,33 @@
   HeartSimulatorFactory.$inject = ['$interval'];
 
   function HeartSimulatorFactory($interval) {
+    var LIMIT = {
+      HEART_RATE: {
+        MIN: 0,
+        MAX: 240
+      },
+      CARDIAC_OUTPUT: {
+        MIN: 0,
+        MAX: 50
+      },
+      STROKE_VOLUME: {
+        MIN: 0,
+        MAX: 300
+      }
+    }, NEXT_INTERVAL= 1000;
+
+    HeartSimulator.LIMIT = LIMIT;
 
     function HeartSimulator() {
 
       var index = 0,
         heartRate = 0,
         cardiacOutput = 0,
-        strokeVolume = 0,
-        LIMITS = {
-          HEART_RATE: {
-            MIN: 0,
-            MAX: 240
-          },
-          CARDIAC_OUTPUT: {
-            MIN: 0,
-            MAX: 50
-          },
-          STROKE_VOLUME: {
-            MIN: 0,
-            MAX: 300
-          }
-        }, NEXT_INTERVAL= 1000, interval;
+        strokeVolume = 0, interval;
 
       next();
 
       return {
-        LIMIT: LIMITS,
         next: next,
         start: start
       };
@@ -85,8 +86,8 @@
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
       }
-
     }
+
     return HeartSimulator;
   }
 

@@ -11,9 +11,21 @@
     .controller('DashCtrl', function ($scope, HeartSimulator) {
 
       var heartSimulator = new HeartSimulator(),
-        heartRateChart = createGauge('#heart-rate'),
-        cardiacOutputChart = createGauge('#cardiac-output'),
-        strokeVolumeChart = createGauge('#stroke-volume');
+        heartRateChart = createGauge({
+          element : '#heart-rate',
+          max: HeartSimulator.LIMIT.HEART_RATE.MAX,
+          value : 100}
+        ),
+        cardiacOutputChart =  createGauge({
+            element : '#cardiac-output',
+            max: HeartSimulator.LIMIT.CARDIAC_OUTPUT.MAX,
+            value : 5}
+        ),
+        strokeVolumeChart = createGauge({
+            element : '#stroke-volume',
+            max: HeartSimulator.LIMIT.STROKE_VOLUME.MAX,
+            value : 100}
+        );
       heartSimulator.start(updateHeartInfo);
 
       $scope.heartRate = 50;
@@ -21,18 +33,39 @@
       $scope.strokeVolume = 40;
 
       function updateHeartInfo(result) {
-        $scope.heartRate = result.heartRate;
-        $scope.cardiacOutput = result.cardiacOutput;
-        $scope.strokeVolume = result.strokeVolume;
+        heartRateChart.load({
+          columns: [
+            ['data', result.heartRate]
+          ]
+        });
+        cardiacOutputChart.load({
+          columns: [
+            ['data', result.cardiacOutput]
+          ]
+        });
+        strokeVolumeChart.load({
+          columns: [
+            ['data', result.strokeVolume]
+          ]
+        });
       }
+      /**
+       *
+       * @param {string} options.element
+       * @param {string|int} options.value
+       * @param {int} options.max
+       * @param {int} [options.min]
+       * @returns {*}
+       */
+      function createGauge(options) {
 
+        options.min = options.min | 0;
 
-      function createGauge(element) {
         return c3.generate({
-          bindto: element,
+          bindto: options.element,
           data: {
             columns: [
-              ['data', 91.4]
+              ['data', options.value]
             ],
             type: 'gauge',
             onclick: function (d, i) {
@@ -50,64 +83,17 @@
               format: function (value, ratio) {
                 return value;
               }
-//              show: false // to turn off the min/max labels.
             },
-//    min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
-    max: 100, // 100 is default
+            min: options.min,
+            max: options.max,
             units: '',
-            width: 10 // for adjusting arc thickness
+            width: 5 // for adjusting arc thickness
           },
           color: {
-            pattern: ['#FF0000', '#F97600', '#F6C600', '#60B044'], // the three color levels for the percentage values.
-            threshold: {
-//            unit: 'value', // percentage is default
-            max: 200, // 100 is default
-              values: [30, 60, 90, 100]
-            }
+            pattern: ['#60B044']
           }
         });
       }
-
-      setTimeout(function () {
-        chart.load({
-          columns: [
-            ['data', 10]
-          ]
-        });
-      }, 1000);
-
-      setTimeout(function () {
-        chart.load({
-          columns: [
-            ['data', 50]
-          ]
-        });
-      }, 2000);
-
-      setTimeout(function () {
-        chart.load({
-          columns: [
-            ['data', 70]
-          ]
-        });
-      }, 3000);
-
-      setTimeout(function () {
-        chart.load({
-          columns: [
-            ['data', 0]
-          ]
-        });
-      }, 4000);
-
-      setTimeout(function () {
-        chart.load({
-          columns: [
-            ['data', 100]
-          ]
-        });
-      }, 5000);
-
     })
 
     .controller('FriendsCtrl', function ($scope, Friends) {
@@ -120,7 +106,5 @@
 
     .controller('AccountCtrl', function ($scope) {
     });
-
-
 })
 (angular);

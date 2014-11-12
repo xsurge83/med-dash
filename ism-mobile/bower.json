@@ -1,0 +1,11 @@
+{
+  "name": "myApp",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.13"
+  },
+  "dependencies": {
+    "d3": "~3.4.13",
+    "c3": "~0.3.0"
+  }
+}

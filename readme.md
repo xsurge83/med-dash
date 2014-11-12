@@ -4,6 +4,7 @@
 - https://www.facebook.com/AlpCamps/photos_stream
 - https://github.com/Prinzhorn/skrollr
 
+draw diagram on how it works with the heart
 #### see other designs  
  
 - polar.com

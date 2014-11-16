@@ -1,24 +1,32 @@
 <ion-view title="Dashboard">
-  <ion-content class="padding">
-      <div class="button-bar bar-stable" style="height: 120px">
-          <div class ="button">
-              Heart Rate
-              <div id="heart-rate" style="height: 100px"></div>
-          </div>
-          <div class ="button">
-              Stroke Volume mL
-              <div id="stroke-volume" style="height: 100px"></div>
-          </div>
+    <ion-content class="padding">
+        <div class="row">
+            <div class="button-bar bar-stable" style="height: 120px">
+                <div class="button padding-none active">
+                    <button class="button  padding-none header-button button-small button-positive">
+                        Heart Rate
+                    </button>
+                    <div id="heart-rate" style="height: 100px"></div>
 
-          <div class ="button">
-              Cardiac Output L/min
-              <div id="cardiac-output" style="height: 100px"></div>
-          </div>
-
-      </div>
-      <div class="card">
-          <div class="item item-text-wrap">
-          </div>
-      </div>
-  </ion-content>
+                </div>
+                <div class="button padding-none ">
+                    <button class="button padding-none  header-button  button-small button-positive">
+                        Stroke Volume
+                    </button>
+                    <div id="stroke-volume" style="height: 100px"></div>
+                </div>
+                <div class="button padding-none ">
+                    <button class="button padding-none  header-button  button-small button-positive">
+                        Cardiac Output
+                    </button>
+                    <div id="cardiac-output" style="height: 100px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <div id="bar-chart"></div>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

@@ -6,26 +6,35 @@
    2. add logo and background screne.
 
    */
-  angular.module('starter.controllers', ['starter.services'])
+  angular.module('starter.controllers', ['starter.services', 'ism-c3'])
 
-    .controller('DashCtrl', function ($scope, HeartSimulator) {
-
-      var heartSimulator = new HeartSimulator(),
-        heartRateChart = createGauge({
-          element : '#heart-rate',
-          max: HeartSimulator.LIMIT.HEART_RATE.MAX,
-          value : 100}
+    .controller('DashCtrl', function ($scope, HeartSimulator, C3) {
+      var MAX_NUM_BARS = 20;
+      var heartSimulator = new HeartSimulator();
+      var heartRateChart = C3.createGauge({
+            element: '#heart-rate',
+            max: HeartSimulator.LIMIT.HEART_RATE.MAX,
+            value: 100}
         ),
-        cardiacOutputChart =  createGauge({
-            element : '#cardiac-output',
+        cardiacOutputChart = C3.createGauge({
+            element: '#cardiac-output',
             max: HeartSimulator.LIMIT.CARDIAC_OUTPUT.MAX,
-            value : 5}
+            value: 5}
         ),
-        strokeVolumeChart = createGauge({
-            element : '#stroke-volume',
+        strokeVolumeChart = C3.createGauge({
+            element: '#stroke-volume',
             max: HeartSimulator.LIMIT.STROKE_VOLUME.MAX,
-            value : 100}
+            value: 100}
         );
+
+
+      var barColumns = [['heart rate']];
+      var barChart = C3.createBarChart({
+        element: '#bar-chart',
+        columns : barColumns
+      });
+
+
       heartSimulator.start(updateHeartInfo);
 
       $scope.heartRate = 50;
@@ -48,50 +57,19 @@
             ['data', result.strokeVolume]
           ]
         });
+
+        updateBarChart(result.heartRate);
       }
-      /**
-       *
-       * @param {string} options.element
-       * @param {string|int} options.value
-       * @param {int} options.max
-       * @param {int} [options.min]
-       * @returns {*}
-       */
-      function createGauge(options) {
 
-        options.min = options.min | 0;
+      function updateBarChart(newItem){
+        var collection = barColumns[0];
 
-        return c3.generate({
-          bindto: options.element,
-          data: {
-            columns: [
-              ['data', options.value]
-            ],
-            type: 'gauge',
-            onclick: function (d, i) {
-              console.log("onclick", d, i);
-            },
-            onmouseover: function (d, i) {
-              console.log("onmouseover", d, i);
-            },
-            onmouseout: function (d, i) {
-              console.log("onmouseout", d, i);
-            }
-          },
-          gauge: {
-            label: {
-              format: function (value, ratio) {
-                return value;
-              }
-            },
-            min: options.min,
-            max: options.max,
-            units: '',
-            width: 5 // for adjusting arc thickness
-          },
-          color: {
-            pattern: ['#60B044']
-          }
+        if(collection.length == MAX_NUM_BARS+1){
+          collection.splice(1,1);
+        }
+        collection.push(newItem);
+        barChart.load({
+          columns : barColumns
         });
       }
     })

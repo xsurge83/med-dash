@@ -12,6 +12,7 @@
   HeartSimulatorFactory.$inject = ['$interval'];
 
   function HeartSimulatorFactory($interval) {
+
     var LIMIT = {
       HEART_RATE: {
         MIN: 0,
@@ -35,12 +36,18 @@
         heartRate = 0,
         cardiacOutput = 0,
         strokeVolume = 0, interval;
+      var cache  = {
+        heart : [],
+        cardiac : [],
+        stroke : []
+        }, CACHE_LIMIT = 20;
 
       next();
 
       return {
         next: next,
-        start: start
+        start: start,
+        cache : cache
       };
 
       function start(tickCallback) {
@@ -50,7 +57,8 @@
             tickCallback({
               heartRate: heartRate,
               cardiacOutput: cardiacOutput,
-              strokeVolume: strokeVolume
+              strokeVolume: strokeVolume,
+              cache : cache
             });
           }
         }, NEXT_INTERVAL);
@@ -60,7 +68,17 @@
         heartRate = _generateHeartRate();
         strokeVolume = _generateStrokeValue();
         cardiacOutput = _generateCardiacOutput(heartRate, strokeVolume);
+        updateCacheCollection(cache.heart, heartRate);
+        updateCacheCollection(cache.stroke, strokeVolume);
+        updateCacheCollection(cache.cardiac, cardiacOutput);
         index++;
+      }
+
+      function updateCacheCollection(collection, newValue){
+        if(collection.length == CACHE_LIMIT){
+          collection.splice(0,1);
+        }
+        collection.push(newValue)
       }
 
       function _generateHeartRate() {

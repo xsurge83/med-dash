@@ -9,7 +9,7 @@
   angular.module('starter.controllers', ['starter.services', 'ism-c3'])
 
     .controller('DashCtrl', function ($scope, HeartSimulator, C3) {
-      var MAX_NUM_BARS = 20;
+
       var heartSimulator = new HeartSimulator();
       var heartRateChart = C3.createGauge({
             element: '#heart-rate',
@@ -28,18 +28,33 @@
         );
 
 
-      var barColumns = [['heart rate']];
-      var barChart = C3.createBarChart({
-        element: '#bar-chart',
-        columns : barColumns
-      });
-
-
       heartSimulator.start(updateHeartInfo);
 
       $scope.heartRate = 50;
       $scope.cardiacOutput = 100;
       $scope.strokeVolume = 40;
+
+
+      $scope.selectedTab = 'heart';
+
+      var barColumns = [
+        [$scope.selectedTab]
+      ];
+      var barChart = C3.createBarChart({
+        element: '#bar-chart',
+        columns: barColumns
+      });
+
+      $scope.selected = function (selectedTab) {
+        if ($scope.selectedTab != selectedTab) {
+
+          // unload current tab
+          barChart.unload({
+            ids: [$scope.selectedTab]
+          });
+          $scope.selectedTab = selectedTab;
+        }
+      }
 
       function updateHeartInfo(result) {
         heartRateChart.load({
@@ -58,18 +73,17 @@
           ]
         });
 
-        updateBarChart(result.heartRate);
+        updateBarChart(result.cache);
       }
 
-      function updateBarChart(newItem){
-        var collection = barColumns[0];
+      function updateBarChart(cache) {
+        var collection = cache[$scope.selectedTab];
 
-        if(collection.length == MAX_NUM_BARS+1){
-          collection.splice(1,1);
-        }
-        collection.push(newItem);
+
+        var barColumns = [[$scope.selectedTab].concat(collection)];
+
         barChart.load({
-          columns : barColumns
+          columns: barColumns
         });
       }
     })

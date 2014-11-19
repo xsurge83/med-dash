@@ -42,6 +42,8 @@
         stroke : []
         }, CACHE_LIMIT = 20;
 
+      _initCache();
+
       next();
 
       return {
@@ -103,6 +105,13 @@
 
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
+      }
+      function _initCache(){
+        for(var index =0; index<CACHE_LIMIT; index++){
+          for(var prop in cache){
+            cache[prop].push(100)
+          }
+        }
       }
     }
 

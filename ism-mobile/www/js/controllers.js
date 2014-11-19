@@ -40,7 +40,7 @@
       var barColumns = [
         [$scope.selectedTab]
       ];
-      var barChart = C3.createBarChart({
+      var barChart = C3.createChart({
         element: '#bar-chart',
         columns: barColumns
       });

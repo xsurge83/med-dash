@@ -3,13 +3,13 @@
   "use strict";
 
   angular.module('ism-c3', [])
-    .factory('C3', GaugeFactory);
+    .factory('C3', C3Factory);
 
-  function GaugeFactory() {
+  function C3Factory() {
 
     return {
       createGauge : createGauge,
-      createBarChart : createBarChart
+      createChart : createChart
     };
 
     /**
@@ -59,12 +59,14 @@
       });
     }
 
-    function createBarChart(options){
+
+    function createChart(options, type){
       return c3.generate({
         bindto : options.element,
         data: {
           columns: options.columns,
-          type: 'bar'
+          type: type || 'line'
+
         },
         bar: {
           width: 10

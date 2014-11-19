@@ -1,20 +1,8 @@
-<ion-view title="Dashboard">
+<ion-view title="CoreTrac">
     <ion-content class="padding">
         <div class="row">
-            <div class="button-bar bar-stable" style="height: 120px">
-                <div class="button padding-none" ng-class="{active: selectedTab=='heart'}" ng-click="selected('heart')">
-                    <button class="button  padding-none header-button button-small button-positive">
-                        Heart Rate
-                    </button>
-                    <div id="heart-rate" style="height: 100px"></div>
-                </div>
-                <div class="button padding-none" ng-class="{active: selectedTab=='stroke'}" ng-click="selected('stroke')">
-                    <button class="button padding-none  header-button  button-small button-positive">
-                        Stroke Volume
-                    </button>
-                    <div id="stroke-volume" style="height: 100px"></div>
-                </div>
-                <div class="button padding-none" ng-class="{active: selectedTab=='cardiac'}" ng-click="selected('cardiac')">
+            <div class="button-bar bar-stable">
+                <div class="button padding-none center-block">
                     <button class="button padding-none  header-button  button-small button-positive">
                         Cardiac Output
                     </button>
@@ -22,9 +10,26 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="button-bar bar-stable">
+                <div class="button padding-none" ng-class="{active: selectedTab=='heart'}" ng-click="selected('heart')">
+                    <button class="button  padding-none header-button button-small button-positive">
+                        Heart Rate
+                    </button>
+                    <div id="heart-rate" style="height: 100px"></div>
+                </div>
+                <div class="button padding-none" ng-class="{active: selectedTab=='stroke'}"
+                     ng-click="selected('stroke')">
+                    <button class="button padding-none  header-button  button-small button-positive">
+                        Stroke Volume
+                    </button>
+                    <div id="stroke-volume" style="height: 100px"></div>
+                </div>
+            </div>
+        </div>
         <div class="card">
             <div class="item item-text-wrap">
-                <div id="bar-chart"></div>
+                <div id="bar-chart" style="height: 150px"></div>
             </div>
         </div>
     </ion-content>

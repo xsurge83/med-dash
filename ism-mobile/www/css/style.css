@@ -2,6 +2,14 @@
 .header-button {
     width: 100%;
 }
+
 .padding-none {
     padding: 0px 0px 0px 0px !important;
+}
+
+.bar.red .title {
+    color: #D90000;
+    -ms-transform: rotate(-2deg);
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
 }

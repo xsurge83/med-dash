@@ -40,7 +40,7 @@
       var barColumns = [
         [$scope.selectedTab]
       ];
-      var barChart = C3.createChart({
+      var chart = C3.createChart({
         element: '#bar-chart',
         columns: barColumns
       });
@@ -49,7 +49,7 @@
         if ($scope.selectedTab != selectedTab) {
 
           // unload current tab
-          barChart.unload({
+          chart.unload({
             ids: [$scope.selectedTab]
           });
           $scope.selectedTab = selectedTab;
@@ -73,16 +73,19 @@
           ]
         });
 
-        updateBarChart(result.cache);
+        updateChart(result.cache);
       }
 
-      function updateBarChart(cache) {
+      function updateChart(cache) {
         var collection = cache[$scope.selectedTab];
 
 
-        var barColumns = [[$scope.selectedTab].concat(collection)];
+//        var barColumns = [[$scope.selectedTab].concat(collection)];
 
-        barChart.load({
+        var barColumns = [['heart rate'].concat(cache['heart']),
+                          ['stroke volume'].concat(cache['stroke'])];
+
+        chart.load({
           columns: barColumns
         });
       }

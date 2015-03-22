@@ -16,8 +16,7 @@ Make sure to open Android Studio and install all the sdks. Read [here](http://co
 10.  execute `npm install `
 11. execute `bower install`
 12. execute `ionic build android` 
-13. plug phone or use emulator 
-14. `ionic run android` 
+13. execute `ionic run android` 
 
 
 

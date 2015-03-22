@@ -6,7 +6,7 @@ Make sure to open Android Studio and install all the sdks. Read [here](http://co
 3. Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 4. open `terminal`
 5. add the following to ~/.bash_profile file 
-export PATH=${PATH}:/Users/{user-name}/Library/Android/sdk/platform-tools:/Users/{user-name}/Library/Android/sdk/tools
+   ```export PATH=${PATH}:/Users/{user-name}/Library/Android/sdk/platform-tools:/Users/{user-name}/Library/Android/sdk/tools```
 6. close and reopen `terminal`. 
 7.  clone repo by executing: 
 	   `git clone https://github.com/xsurge83/infrasonic`

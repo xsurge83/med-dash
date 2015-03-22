@@ -1,7 +1,8 @@
 Setup
 -----
-1. install nodejs. Follow instructions [here](follow%20instruction%20to%20install)
-2. Install Android sdk. Follow instructorions [here](http://developer.android.com/sdk/index.html).  Make sure to open Android Studio and install all the sdks. Read [here](http://cordova.apache.org/docs/en/3.3.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide) for more details. 
+1. Install [nodejs](follow%20instruction%20to%20install)
+2. Install Android [sdk](http://developer.android.com/sdk/index.html).  
+Make sure to open Android Studio and install all the sdks. Read [here](http://cordova.apache.org/docs/en/3.3.0/guide_platforms_android_index.md.html#Android%20Platform%20Guide) for more details. 
 3. Install [git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 4. open `terminal`
 5. add the following to ~/.bash_profile 

@@ -9,7 +9,7 @@ Setup
 6. close and reopen `terminal`. 
 7.  clone repo by executing: 
 	   `git clone https://github.com/xsurge83/infrasonic`
-8. go to following directory `cd infrasonic//ism-mobile`
+8. go to following directory `cd infrasonic/ism-mobile`
 9. execute `npm install -g cordova ionic bower gulp` may have to `sudo` or admin permissions
 10.  execute `npm install `
 11. execute `bower install`
